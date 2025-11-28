@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { orderService } from "../../services/userService";
-import DetalleOrden from "../ordenes/DetalleOrden";
+import DetalleOrden from "../modals/DetalleOrden";
 
 export default function Pedidos() {
   const [orders, setOrders] = useState([]);
@@ -11,7 +11,6 @@ export default function Pedidos() {
 
   const fetchOrders = useCallback(async () => {
     try {
-      // Este endpoint ya filtra las órdenes del cliente autenticado
       const response = await orderService.getBelusauriaOrders();
       setOrders(response);
     } catch (err) {
@@ -109,7 +108,6 @@ export default function Pedidos() {
           </table>
         </div>
 
-        {/* Modal de Detalles */}
         {isModalOpen && selectedOrderId && (
           <DetalleOrden
             orderId={selectedOrderId}
