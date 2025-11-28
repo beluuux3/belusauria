@@ -274,36 +274,3 @@ export default function Productos() {
     </>
   );
 }
-                className={`px-3 py-1 rounded ${
-                  currentPage === totalPages
-                    ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                    : "bg-[#ffa2c6] text-gray-800 hover:bg-[#ff3f89] hover:text-white"
-                }`}
-              >
-                Siguiente
-              </button>
-            </div>
-          )}
-        </>
-      )}
-
-      {isModalOpen && (
-        <CrearProducto
-          onClose={() => setIsModalOpen(false)}
-          onProductCreated={handleProductCreated}
-        />
-      )}
-
-      {isEditModalOpen && selectedProductId && (
-        <EditarProducto
-          productId={selectedProductId}
-          onClose={() => {
-            setIsEditModalOpen(false);
-            setSelectedProductId(null);
-          }}
-          onProductUpdated={handleProductUpdated}
-        />
-      )}
-    </>
-  );
-}
